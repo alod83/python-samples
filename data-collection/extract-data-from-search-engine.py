@@ -1,22 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[194]:
-
 
 from selenium import webdriver
 import time
 
-
-# In[195]:
-
-
 driver = webdriver.Chrome()
 page = driver.get("https://www.paginebianche.it/")
-
-
-# In[196]:
-
 
 # accept cookies
 cookies = driver.find_element_by_xpath("//*[@class='gdpr_accept']")
@@ -37,18 +27,10 @@ search_place.send_keys(place)
 search = driver.find_element_by_xpath("//*[@id='frmNameSubmit']")
 search.submit()
 
-
-# In[200]:
-
-
 # wait for results
 time.sleep(5)
 
-
-# In[201]:
-
-
-n = 21
+n = 21 # 20 elements for each page 
 hotels = []
 
 # parse results
@@ -78,11 +60,7 @@ while True:
         next_page.click()
     except:
         break
-
-
-# In[202]:
-
-
+        
 import csv
 
 # save results into a csv file
@@ -91,10 +69,6 @@ with open('hotels.csv', 'w') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(hotels)
-
-
-# In[ ]:
-
 
 
 
