@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+# The full explanation of this code is available at this link: 
+# https://medium.com/@angelica.loduca/how-to-extract-data-from-a-search-engine-through-python-and-selenium-35dfe6b20db
 
 from selenium import webdriver
 import time
